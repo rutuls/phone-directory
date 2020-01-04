@@ -16,8 +16,8 @@ class App extends Component {
       }
     ];
     return (
-    <div>
-      <Header/>
+      <div>
+      <Header heading="Phone Directory"></Header>
       <div className="component-body-container">
         <button className="custom-btn add-btn">Add</button>
         <div className="grid-container heading-container">
