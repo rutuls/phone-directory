@@ -4,6 +4,10 @@ import './ShowSubscribers.css'
 import {Link} from 'react-router-dom';
 class ShowSubscribers extends Component {
 
+  onDeleteClick = (subId) => {
+    this.props.deleteSub(subId);
+  }
+
   render() {
     // let subscribers = [
     //   {
@@ -32,7 +36,7 @@ class ShowSubscribers extends Component {
           this.props.showsub.map(sub => <div key={sub.id} className="grid-container">
           <span className="grid-item">{sub.name}</span>
           <span className="grid-item">{sub.phone}</span>
-          <span className="grid-item action-btn-container"><button className="custom-btn delete-btn">Delete</button></span>
+          <span className="grid-item action-btn-container"><button className="custom-btn delete-btn" onClick={this.onDeleteClick.bind(this, sub.id)}>Delete</button></span>
         </div>)
         }
         
