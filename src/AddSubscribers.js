@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from './Header';
 import './AddSubscribers.css';
 import './common/common.css';
+import {Link} from 'react-router-dom';
 class AddSubscribers extends Component {
 
     constructor() {
@@ -24,6 +25,7 @@ class AddSubscribers extends Component {
         e.preventDefault(); // to stop form from reloading
         this.props.addSubScriber(this.state);
         this.setState({id:0,name:'',phone:''});
+        this.props.history.push("/");
     }
 
     render() {
@@ -32,7 +34,7 @@ class AddSubscribers extends Component {
             <div>
                 <Header heading="Add Subscribers"></Header>
                 <div className="component-body-container">
-                <button className="custom-btn">Back</button>
+                <Link to="/"><button className="custom-btn">Back</button></Link>
                 <form className="subscriber-form" onSubmit={this.onSubmittedHandler.bind(this)}>
                     <label htmlFor="name" className="label-control">Name: </label><br/>
                     <input id="name" type="text" className="input-control" name="name" onChange={this.inputChangedHandler}></input><br/><br/>
